@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Image(
-                image: AssetImage('assets/images/logons.png'), // Ensure the image is in the assets folder and declared in pubspec.yaml
+                image: AssetImage('assets/image/logons.png'), // Ensure the image is in the assets folder and declared in pubspec.yaml
                 width: 250,
                 height: 250,
               ),

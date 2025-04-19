@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/internclass/NeoSaver/neo_saver",
-      "program": "d:/internclass/NeoSaver/neo_saver/build/Debug/outDebug",
+      "cwd": "d:/internclass/NeoSaver/neo_saver/lib",
+      "program": "d:/internclass/NeoSaver/neo_saver/lib/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
