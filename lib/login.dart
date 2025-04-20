@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'signup.dart';  // Import the SignUpPage file
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -74,6 +75,25 @@ class LoginPage extends StatelessWidget {
                     foregroundColor: Colors.white,  // Set text color
                   ),
                 ),
+                const SizedBox(height: 20), // Space between buttons
+                // Signup Button
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the Signup page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpPage(), // Navigate to SignUpPage
+                      ),
+                    );
+                  },
+                  child: const Text('Signup'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),  // Set button color
+                    foregroundColor: Colors.white,  // Set text color
+                  ),
+                ),
               ],
             ),
           ),
@@ -123,6 +143,134 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+// Ensure this is your SignUpPage from the provided code in `signup.dart`
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final _formKey = GlobalKey<FormState>();
+  String? _selectedRole;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign Up'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            children: [
+              TextFormField(
+                decoration: InputDecoration(labelText: 'First Name'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your first name';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Last Name'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your last name';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Age'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your age';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Phone Number'),
+                keyboardType: TextInputType.phone,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your phone number';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'NID Number'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your NID number';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Join as:',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              RadioListTile<String>(
+                title: Text('Ambulance Partner'),
+                value: 'Ambulance Partner',
+                groupValue: _selectedRole,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedRole = value;
+                  });
+                },
+              ),
+              RadioListTile<String>(
+                title: Text('User'),
+                value: 'User',
+                groupValue: _selectedRole,
+                onChanged: (value) {
+                  setState(() {
+                    _selectedRole = value;
+                  });
+                },
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate() && _selectedRole != null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Sign Up Successful')),
+                    );
+                  } else if (_selectedRole == null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Please select a role')),
+                    );
+                  }
+                },
+                child: Text('Sign Up'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
