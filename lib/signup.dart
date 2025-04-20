@@ -14,12 +14,14 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign Up'),
+        backgroundColor: const Color.fromARGB(255, 133, 215, 151),
       ),
       body: Container(
+        // This container applies the background image
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/image/NeoSaver.png'), // Set the background image here
-            fit: BoxFit.cover, // This ensures the image covers the entire screen
+            image: AssetImage('assets/image/NeoSaver.png'), // Background image
+            fit: BoxFit.cover, // Ensure the image covers the entire screen
           ),
         ),
         child: Padding(
