@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';  // Import the SignUpPage file
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
