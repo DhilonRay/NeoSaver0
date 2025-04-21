@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(height: 20),
-                // Username TextField
+              
                 TextField(
                   controller: usernameController,
                   decoration: InputDecoration(
@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                // Password TextField
+            
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -39,16 +39,16 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                // Login Button
+                
                 ElevatedButton(
                   onPressed: () {
-                    // Handle login logic
+                  
                     String username = usernameController.text;
                     String password = passwordController.text;
 
-                    // Here, you can add your login validation
+                    
                     if (username == 'user' && password == 'pass') {
-                      // Navigate to the next page
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Login Successful')),
                       );
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                       );
                     }
 
-                    // Navigate to a new page (example: MyHomePage)
+                    
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -70,26 +70,26 @@ class LoginPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
                     backgroundColor: const Color.fromARGB(255, 22, 218, 61),  // Set button color
-                    foregroundColor: Colors.white,  // Set text color
+                    foregroundColor: Colors.white,  
                   ),
                 ),
-                const SizedBox(height: 20), // Space between buttons
-                // Signup Button
+                const SizedBox(height: 20), 
+              
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to the Signup page
+                    
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpPage(), // Navigate to SignUpPage
+                        builder: (context) => SignUpPage(), 
                       ),
                     );
                   },
                   child: const Text('Signup'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),  // Set button color
-                    foregroundColor: Colors.white,  // Set text color
+                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),  
+                    foregroundColor: Colors.white, 
                   ),
                 ),
               ],
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// Ensure this is your SignUpPage from the provided code in `signup.dart`
+
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();

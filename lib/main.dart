@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart'; // Import the login.dart page
+import 'login.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'First Page',
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
                 minimumSize: const Size(double.infinity, 50),
               ),
               onPressed: () {
-                // Navigate to the login page when the button is pressed
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) =>  LoginPage()),
