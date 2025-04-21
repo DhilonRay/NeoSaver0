@@ -4,11 +4,12 @@ class LoginPage extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome'),
+        title: const Text('Welcoe'),
         backgroundColor: const Color.fromARGB(255, 71, 238, 107),
       ),
       body: Padding(
