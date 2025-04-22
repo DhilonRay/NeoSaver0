@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(height: 20),
-              
+
                 TextField(
                   controller: usernameController,
                   decoration: InputDecoration(
@@ -30,7 +29,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-            
+
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -41,16 +40,13 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                
+
                 ElevatedButton(
                   onPressed: () {
-                  
                     String username = usernameController.text;
                     String password = passwordController.text;
 
-                    
                     if (username == 'user' && password == 'pass') {
-                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Login Successful')),
                       );
@@ -60,38 +56,40 @@ class LoginPage extends StatelessWidget {
                       );
                     }
 
-                    
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MyHomePage(title: 'Home Page'),
+                        builder:
+                            (context) => const MyHomePage(title: 'Home Page'),
                       ),
                     );
                   },
                   child: const Text('Login'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),  // Set button color
-                    foregroundColor: Colors.white,  
+                    backgroundColor: const Color.fromARGB(
+                      255,
+                      22,
+                      218,
+                      61,
+                    ), // Set button color
+                    foregroundColor: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 20), 
-              
+                const SizedBox(height: 20),
+
                 ElevatedButton(
                   onPressed: () {
-                    
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => SignUpPage(), 
-                      ),
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
                     );
                   },
                   child: const Text('Signup'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),  
-                    foregroundColor: Colors.white, 
+                    backgroundColor: const Color.fromARGB(255, 22, 218, 61),
+                    foregroundColor: Colors.white,
                   ),
                 ),
               ],
@@ -124,9 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +144,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -161,9 +156,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up'),
-      ),
+      appBar: AppBar(title: Text('Sign Up')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -256,7 +249,8 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate() && _selectedRole != null) {
+                  if (_formKey.currentState!.validate() &&
+                      _selectedRole != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Sign Up Successful')),
                     );
@@ -277,8 +271,5 @@ class _SignUpPageState extends State<SignUpPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: LoginPage(),
-  ));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: LoginPage()));
 }

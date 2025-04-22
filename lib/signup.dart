@@ -5,7 +5,6 @@ class SignUpPage extends StatefulWidget {
   _SignUpPageState createState() => _SignUpPageState();
 }
 
-
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   String? _selectedRole;
@@ -18,11 +17,10 @@ class _SignUpPageState extends State<SignUpPage> {
         backgroundColor: const Color.fromARGB(255, 133, 215, 151),
       ),
       body: Container(
-        
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/image/NeoSaver.png'), 
-            fit: BoxFit.cover, 
+            image: AssetImage('assets/image/NeoSaver.png'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Padding(
@@ -45,6 +43,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your last name';
+                    }
+                    return null;
+                  },
+                ),
+                 TextFormField(
+                  decoration: const InputDecoration(labelText: 'password'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
                     }
                     return null;
                   },
@@ -117,7 +124,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate() && _selectedRole != null) {
+                    if (_formKey.currentState!.validate() &&
+                        _selectedRole != null) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Sign Up Successful')),
                       );
@@ -139,7 +147,5 @@ class _SignUpPageState extends State<SignUpPage> {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: SignUpPage(),
-  ));
+  runApp(MaterialApp(home: SignUpPage()));
 }
