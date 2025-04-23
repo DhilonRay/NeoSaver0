@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'screens/login_screen.dart';
 
-void main() => runApp(const NeoSaverApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const NeoSaverApp());
+}
 
 class NeoSaverApp extends StatelessWidget {
   const NeoSaverApp({super.key});
@@ -11,8 +16,10 @@ class NeoSaverApp extends StatelessWidget {
     return MaterialApp(
       title: 'Neo Saver',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const SplashScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: const LoginScreen(), 
     );
   }
 }

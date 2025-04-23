@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'ride_request_screen.dart';
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+  final String role; 
+
+  const MapScreen({super.key, required this.role}); 
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -12,36 +15,47 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController? mapController;
   final Location _location = Location();
-
-  LatLng _initialPosition = const LatLng(37.7749, -122.4194); // Default SF
+  LatLng _currentPosition = const LatLng(37.7749, -122.4194);
 
   @override
   void initState() {
     super.initState();
-    _getUserLocation();
+    _setInitialLocation();
   }
 
-  void _getUserLocation() async {
-    final locData = await _location.getLocation();
+  void _setInitialLocation() async {
+    var loc = await _location.getLocation();
     setState(() {
-      _initialPosition = LatLng(locData.latitude!, locData.longitude!);
+      _currentPosition = LatLng(loc.latitude!, loc.longitude!);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Neo Saver Map")),
+      appBar: AppBar(
+        title: Text("Neo Saver (${widget.role})"),
+      ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
-          target: _initialPosition,
-          zoom: 14.0,
+          target: _currentPosition,
+          zoom: 15,
         ),
         onMapCreated: (controller) => mapController = controller,
         myLocationEnabled: true,
-        myLocationButtonEnabled: true,
-        zoomControlsEnabled: false,
       ),
+      floatingActionButton: widget.role == "User"
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const RideRequestScreen()),
+                );
+              },
+              label: const Text("Request a Ride"),
+              icon: const Icon(Icons.local_taxi),
+            )
+          : null, 
     );
   }
 }
