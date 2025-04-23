@@ -1,5 +1,5 @@
 name: neo_saver
-description: "A new Flutter project."
+description: "Uber clone Flutter app - Neo Saver"
 publish_to: 'none' 
 
 version: 1.0.0+1
@@ -11,6 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  google_maps_flutter: ^2.5.0
+  location: ^5.0.3
+  geocoding: ^2.1.0
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
@@ -20,8 +24,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  
   assets:
     - assets/image/logons.png
     - assets/image/NeoSaver.png
-
