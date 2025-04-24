@@ -38,7 +38,7 @@ class FirebaseInitErrorApp extends StatelessWidget {
         body: Center(
           child: Text(
             'Failed to initialize Firebase. Please restart the app.',
-            style: TextStyle(color: Colors.red, fontSize: 18),
+            style: TextStyle(color: const Color.fromARGB(255, 133, 240, 151), fontSize: 38),
             textAlign: TextAlign.center,
           ),
         ),

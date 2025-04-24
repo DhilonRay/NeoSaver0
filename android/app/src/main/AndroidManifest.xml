@@ -1,16 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.neo_saver">
 
+    <!-- Required for Firebase and general internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!-- Location Permissions -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Optional: Uncomment for background location access -->
+    <!-- Optional for background location access -->
     <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> -->
 
     <application
         android:label="neo_saver"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
 
         <!-- Google Maps API Key -->
         <meta-data

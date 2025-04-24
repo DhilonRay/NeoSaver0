@@ -6,7 +6,7 @@ class RideRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Request Ride")),
+      appBar: AppBar(title: const Text("Request Ambulance")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -24,7 +24,7 @@ class RideRequestScreen extends StatelessWidget {
                 // For now, just pop back to map
                 Navigator.pop(context);
               },
-              child: const Text("Request Ride"),
+              child: const Text("Request ambulance"),
             )
           ],
         ),

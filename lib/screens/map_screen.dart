@@ -54,7 +54,7 @@ class _MapScreenState extends State<MapScreen> {
               },
               label: const Text("Request a Ride"),
               icon: const Icon(Icons.local_taxi),
-            )
+            ) 
           : null, 
     );
   }
